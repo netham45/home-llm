@@ -318,7 +318,7 @@ class LLaMAAgent(AbstractConversationAgent):
 
                 # parse old format or JSON format
                 try:
-                    json_output = json.loads(line)
+                    json_output = json.loads(line.replace('\_','_'))
                     service = json_output["service"]
                     entity = json_output["target_device"]
                     domain, service = tuple(service.split("."))
